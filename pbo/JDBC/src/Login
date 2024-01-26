@@ -1,0 +1,44 @@
+import java.util.Scanner;
+ 
+    public class Login{
+    public String Code[] = {"KM123","KM321","KM1432","KM7890","KM5686"};
+    public String Captcha;
+    public int hitung = -1;
+    public Login(){
+        String id;
+        String password;
+        System.out.println("SELAMAT DATANG DI DHIYA HIJAB");
+        System.out.println("===================================================");
+        System.out.println("Log in  ");
+            do{
+                Scanner d=new Scanner(System.in);
+                System.out.print("Username         : ");
+                id = d.next();
+                System.out.print("Password         : ");
+                password = d.next();
+                if(id.equalsIgnoreCase("dhiya12345") && password.equals("dhiyasafira")){
+                    int random = 0;
+                    String k;
+                    do{
+                        if(random>0){
+                            System.out.println("Captcha Salah, Mohon Coba Lagi !!!");
+                        }
+                        random++;
+                        hitung ++;
+                        hitung %=3;
+                        System.out.println("Kode Captcha     : " + Code[hitung]);
+                        System.out.print("Entry Captcha    : ");
+                        Scanner KM1 = new Scanner(System.in);
+                        Captcha = KM1.next();
+
+                    }while(!Captcha.equals(Code[hitung]));
+
+
+                    System.out.println("BERHASIL");
+                    break;
+                }else{
+                    System.out.println("Mohon Coba Lagi");
+                }
+            }while(!id.equals("dhiya12345") || !password.equals("dhiyasafira"));  
+    }
+}
